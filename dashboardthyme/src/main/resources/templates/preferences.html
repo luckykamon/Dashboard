@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="120"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #AAB7B8;
+            padding: 25px;
+        }
+
+        .carousel-inner img {
+            width: 100%; /* Set width to 100% */
+            margin: auto;
+            min-height: 200px;
+        }
+
+        #titreYt {
+            color: darkred;
+        }
+
+        /* Hide the carousel text when the screen is less than 600 pixels wide */
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/dashboard/templates/index.html?_ijt=kk84titf6l50jp8aq85o49bd3t">Dashboard</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/dashboard/templates/index.html?_ijt=kk84titf6l50jp8aq85o49bd3t">Accueil</a></li>
+                <li><a href="/dashboard/templates/perso.html?_ijt=kk84titf6l50jp8aq85o49bd3t">Espace personnel</a></li>
+                <li class="active"><a href="/dashboard/templates/preferences.html?_ijt=4l3voj1tchi0thpgbociru72g0">Préférences</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/dashboard/templates/login.html?_ijt=ehbt8emo3liucqi5nd6ivkv18i"><span
+                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<h2 class="text-center">Vos widgets</h2>
+<br>
+<!--                    SERVICE GOOGLE               -->
+<div class="container well" style="background-color: #CA3535;">
+    <div class="contaier-fluid">
+        <h3 class="text-center" style="color: white;">Service Google</h3>
+        <br>
+        <!--                                        YOUTUBE                                  -->
+        <div class="col-sm-4">
+            <div class="checkbox" class="text-center">
+                <h3 style="color: white;">Youtube
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#youtubeModal">
+                        <span class="glyphicon glyphicon-plus"></span> Ajouter Widget
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="modal fade" id="youtubeModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Paramètres des widgets Youtube</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ajoutWidgetYoutube">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="youtubePlaylistActivated" value="1">Playlist de vidéos de la chaîne choisie.</label>
+                            </div>
+                            <label>Url de la chaîne (playlist) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="preferenceYoutubePlaylistChannelURL"></label>
+                            <br>
+                            <label> Refresh du widget (en minute) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="timer1"></label>
+                            <br>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="youtubeVueChannelActivated" value="1">Nombre de vues de la chaîne.</label>
+                            </div>
+                            <label>Url de la chaîne (nombre de vues)  : <input type="text" name="preferenceYoutubeVueChannelURL"></label>
+                            <br>
+                            <label> Refresh du widget (en minute) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="timer2"></label>
+                            <br>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="youtubeVueVideoActivated" value="1">Nombre de vues de la vidéo choisie.</label>
+                            </div>
+                            <label>Url de la vidéo (nombre de vues) : &nbsp;&nbsp;<input type="text" name="preferenceYoutubeVueVideoURL"></label>
+                            <br>
+                            <label> Refresh du widget (en minute) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="timer3"></label>
+                            <br>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="youtubeCommentActivated" value="1">Liste des 20 premiers commentaires de la vidéo.</label>
+                            </div>
+                            <label>Url de la vidéo (commentaires) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="preferenceYoutubeCommentVideoURL"></label>
+                            <br>
+                            <label> Refresh du widget (en minute) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="timer4"></label>
+                            <br>
+                            <br>
+                            <div class="text-center">
+                                <input type="submit" value="Ajouter" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--                                           CALENDRIER                            -->
+        <div class="col-sm-4">
+            <div class="checkbox" class="text-center">
+                <h3 style="color: white;">Calendrier
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#calendarModal">
+                        <span class="glyphicon glyphicon-plus"></span> Ajouter Widget
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="modal fade" id="calendarModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Paramètres du widget Calendrier</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ajoutWidgetCalendrier">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="calendarActivated" value="1">Calendrier</label>
+                                <br>
+                            </div>
+                            <label> Refresh du widget (en minute) : <input type="text" name="timer1"></label>
+                            <br>
+                            <div class="form-group">
+                                <label for="sel1">Choix du format :</label>
+                                <select class="form-control" id="sel1">
+                                    <option value="WEEK">Semaine</option>
+                                    <option value="MONTH">Mois</option>
+                                    <option value="AGENDA">Agenda</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <input type="submit" value="Ajouter" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--                                           DRIVE                                 -->
+        <div class="col-sm-4">
+            <div class="checkbox" class="text-center">
+                <h3 style="color: white;">Drive
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#driveModal">
+                        <span class="glyphicon glyphicon-plus"></span>Ajouter Widget
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="modal fade" id="driveModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Paramètres du widget Drive</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ajoutWidgetDrive">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="driveActivated" value="1">Drive</label>
+                            </div>
+                            <label>Url de votre drive : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="drive"></label>
+                            <br>
+                            <label> Refresh du widget (en minute) : <input type="text" name="timer1"></label>
+                            <br>
+                            <br>
+                            <div class="text-center">
+                                <input type="submit" value="Ajouter" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--                    AUTRES SERVICES               -->
+    <div class="container-fluid" >
+        <!--                    SERVICE AMAZON               -->
+        <div class="col-sm-2">
+        </div>
+        <div class="well col-sm-3 text-center" style="background-color: #EA6F2D;">
+            <h3 class="text-center" style="color: white;">Service Amazon</h3>
+            <br>
+            <div class="checkbox" class="text-center">
+                <h3 style="color: white;">Amazon
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#amazonModal">
+                        <span class="glyphicon glyphicon-plus"></span> Ajouter Widget
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="modal fade" id="amazonModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Paramètres du widget Amazon</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ajoutWidgetAmazon">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="amazonActivated" value="1">Résultats de
+                                    recherche.</label>
+                            </div>
+                            <label>Objet recherché : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titreRecherche"></label>
+                            <br>
+                            <label> Refresh du widget (en minute) : <input type="text" name="timer1"></label>
+                            <br>
+                            <br>
+                            <div class="text-center">
+                                <input type="submit" value="Ajouter" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+        </div>
+<!--                    SERVICE DISCORD               -->
+        <div class="well col-sm-3 text-center" style="background-color: #A4ADAF;">
+            <h3 class="text-center">Service Discord</h3>
+            <br>
+            <div class="checkbox" class="text-center">
+                <h3>Discord
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#discordModal">
+                        <span class="glyphicon glyphicon-plus"></span> Ajouter Widget
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="modal fade" id="discordModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Paramètres du widget Discord</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ajoutWidgetDiscord">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="discordDarkMode" value="1">Mode dark</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="discordActivated" value="1">Affichage des membres connectés du serveur
+                                    choisis.</label>
+                            </div>
+                            <label>Id du serveur : <input type="text" name="discordIdServer"></label>
+                            <br>
+                            <br>
+
+                            <div class="text-center">
+                                <input type="submit" value="Ajouter" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--                    SERVICE MÉTÉO               -->
+    <div class="container-fluid">
+
+        <div class="col-sm-2">
+        </div>
+        <div class="well col-sm-3 text-center" style="background-color: #41838F;">
+            <h3 style="color: white;">Service Météo</h3>
+            <br>
+            <div class="checkbox" class="text-center">
+                <h3 style="color: white;">Météo
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal"
+                            data-target="#weatherModal">
+                        <span class="glyphicon glyphicon-plus"></span> Ajouter Widget
+                    </button>
+                </h3>
+            </div>
+        </div>
+        <div class="modal fade" id="weatherModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Paramètres du widget Weather</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/ajoutWidgetWeather">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="weatherTempActivated" value="1">Température.</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="weatherPictoActivated" value="1">Pictogramme.</label>
+                            </div>
+
+                            <label>Nombre de jours (1-7) : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="weatherDays"></label>
+                            <br/>
+                            <label>Nom de la ville : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  name="weatherCity"></label>
+                            <br>
+                            <label> Refresh du widget (en minute) : <input type="text" name="timer1"></label>
+                            <br>
+                            <br>
+
+                            <div class="text-center">
+                                <input type="submit" value="Ajouter" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<footer class="container-fluid text-center">
+    <p>Dashboard project by Corentin Herisson, Tiphaine Blanchard & Lucas Bodin</p>
+</footer>
+
+</body>
+</html>

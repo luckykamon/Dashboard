@@ -1,0 +1,192 @@
+<!--Header-->
+
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="120"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        .footer1 {
+            background-color: #AAB7B8;
+            padding: 25px;
+        }
+
+        .footer2 {
+            background-color: #AAB7B8;
+            padding: 25px;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .carousel-inner img {
+            width: 100%; /* Set width to 100% */
+            margin: auto;
+            min-height: 200px;
+        }
+
+        #titreYt {
+            color: darkred;
+        }
+
+        #titreAm {
+            color: orangered;
+        }
+
+        #titreWt {
+            color: darkslategray;
+        }
+
+        .comment {
+            height: 500px;
+            overflow: scroll;
+        }
+
+        /* Hide the carousel text when the screen is less than 600 pixels wide */
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Dashboard</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Accueil</a></li>
+                <li><a href="/perso">Espace personnel</a></li>
+                <li><a href="/preferences">Préférences</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<!--Carousel:-->
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="https://i.ibb.co/FH5PRZb/img1.png"
+                 style="height:55%; width: 100%" alt="Image1">
+            <div class="carousel-caption">
+                <h1 style="color:black">Vos services à portée de main</h1>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="https://i.ibb.co/JFJjZyp/img2.jpg"
+                 style="width:100%; height: 55%" alt="Image2">
+
+            <div class="carousel-caption">
+                <h1 style="color:white">Tous vos services accessibles en un clic</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+
+
+
+<!--Corps:-->
+
+<div class="container text-center">
+    <h3>Nos widgets</h3><br>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <h3>Discord</h3>
+            <iframe src="https://discord.com/widget?id=755024047284158514&theme=dark" width="300" height="300"
+                    allowtransparency="true" frameborder="0"
+                    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <h3>Youtube</h3>
+            <iframe width="300" height="200px"
+                    src="https://www.youtube.com/embed/videoseries?list=UUYGjxo5ifuhnmvhPvCc3DJQ" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <h3>Météo</h3>
+            <iframe src="https://www.meteoblue.com/fr/meteo/widget/daily/rennes_france_2983990?geoloc=fixed&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=1&windspeed=0&windgust=0&winddirection=0&uv=0&humidity=0&precipitation=0&precipitationprobability=0&spot=0&pressure=0&layout=light"
+                    frameborder="0" scrolling="NO" allowtransparency="true"
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+                    style="width: 300px; height: 300px"></iframe>
+        </div>
+    </div>
+</div>
+<br>
+
+
+<!--Footer-->
+
+
+<footer class="container-fluid text-center footer1">
+    <p>Dashboard project by Corentin Herisson, Tiphaine Blanchard & Lucas Bodin</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+{
+  " client ": {
+    " host ": "localhost:8080"
+  },
+  " server ": {
+    "current_time ": 1608293439,
+    "services ": [
+      {
+        "name ": "Google",
+        "widgets ": [{
+            "name ": "Playlist youtube",
+            "description ": "Affiche la playlist des dernières vidéos sorties de la chaîne",
+            "params ": [
+              {
+                "name ": "url",
+                "type ": "string"
+              }
+            ]
+          },
+          {
+            "name ": "Nombre de vues de la chaîne",
+            "description ": "Affiche le nombre de vues de la chaîne",
+            "params ": [
+              {
+                "name ": "url",
+                "type ": "string"
+              }
+            ]
+          },
+          {
+            "name ": "Nombre de vues de la vidéo",
+            "description ": "Affiche le nombre de vues de la vidéo",
+            "params ": [
+              {
+                "name ": "url",
+                "type ": "string"
+              }
+            ]
+          },
+          {
+            "name ": "Liste des commentaires",
+            "description ": "Affiche les 20 premiers commentaires de la vidéo",
+            "params ": [
+              {
+                "name ": "url",
+                "type ": "string"
+              }
+            ]
+          },
+          {
+            "name ": "Calendrier",
+            "description ": "Affiche un calendrier (personnalisé si on est connecté avec notre compte google)",
+            "params ": [
+              {
+                "name ": "format",
+                "type ": "string"
+              }
+            ]
+          },
+          {
+            "name ": "Drive",
+            "description ": "Affiche notre drive personnel)",
+            "params ": [
+              {
+                "name ": "url",
+                "type ": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name ": "Amazon",
+        "widgets ": [{
+                "name ": "Amazon",
+                "description ": "Affiche une liste de résultats de recherche.",
+                "params ": [
+                  {
+                    "name ": "objet recherché",
+                    "type ": "string"
+                  }
+                ]
+              }
+        ]
+      },
+      {
+        "name ": "Discord",
+        "widgets ": [
+              {
+                "name ": "Discord",
+                "description ": "Affiche la liste des personnes connectées sur un serveur disord",
+                "params ": [{
+                    "name ": "couleur du fond",
+                    "type ": "string"
+                  },
+                  {
+                    "name ": "id du serveur",
+                    "type ": "string"
+                  }]
+              }]
+      },
+      {
+        "name ": "Météo",
+        "widgets ": [{
+          "name ": "Météo",
+          "description ": "Affiche la météo d'une ville avec la température et des pictogrammes",
+          "params ": [
+            {
+              "name ": "Température",
+              "type ": "integer"
+            },
+            {
+              "name ": "Pictogrammes",
+              "type ": "integer"
+            },
+            {
+              "name ": "Nombre de jours",
+              "type ": "integer"
+            },
+            {
+              "name ": "Ville",
+              "type ": "string"
+            }]
+        }
+        ]
+      }
+    ]
+  }
+}
+

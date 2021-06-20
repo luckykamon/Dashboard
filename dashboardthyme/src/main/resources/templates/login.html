@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="FR">
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #AAB7B8;
+            padding: 25px;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .carousel-inner img {
+            width: 100%; /* Set width to 100% */
+            margin: auto;
+            min-height: 200px;
+        }
+
+        /* Hide the carousel text when the screen is less than 600 pixels wide */
+        @media (max-width: 600px) {
+            .carousel-caption {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/dashboard/templates/index.html?_ijt=kk84titf6l50jp8aq85o49bd3t">Dashboard</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/dashboard/templates/index.html?_ijt=kk84titf6l50jp8aq85o49bd3t">Accueil</a></li>
+                <li><a href="/dashboard/templates/perso.html?_ijt=kk84titf6l50jp8aq85o49bd3t">Espace personnel</a></li>
+                <li><a href="/dashboard/templates/preferences.html?_ijt=4l3voj1tchi0thpgbociru72g0">Préférences</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/dashboard/templates/login.html?_ijt=ehbt8emo3liucqi5nd6ivkv18i"><span
+                        class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<div id="page" class="container">
+    <div class="row">
+        <h2 class="text-primary text-center">Se connecter</h2>
+        <br>
+        <div class="col-md-6 col-md-offset-3">
+            <form class="form-group" action="/checkLogin">
+                <div class="form-group">
+                    <label for="login">Login<sup class="requiredField">(*)</sup> : </label>
+                    <input id="login" class="form-control" type="text" name="loginGiven">
+                </div>
+                <div class="form-group">
+                    <label for="mdp">Mot de passe<sup class="requiredField">(*)</sup> : </label>
+                    <input id="mdp" class="form-control" type="password" name="mdpGiven">
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="Se connecter" id="connexion" class="btn btn-primary">
+                </div>
+            </form>
+            <br> <br>
+            <div class="container text-center" style="width: 100%">
+                <a href="/oauth2/authorization/facebook">
+                    <img src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"
+                         style="width: 10%; height: 10%">
+                </a>
+                <a href="/oauth2/authorization/google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                         style="width: 10%; height: 10%; margin-right: 5%; margin-left: 5%">
+                </a>
+                <a href="/oauth2/authorization/github">
+                    <img src="https://image.flaticon.com/icons/png/512/25/25231.png" style="width: 10%; height: 10%">
+                </a>
+            </div>
+            <div class="text-center">
+                <br>
+                <a href="/dashboard/templates/inscription.html?_ijt=91fjqhjt14m0dmpsqel847qj6q">Pas encore inscrit?</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<!--<div class="container-fluid">-->
+
+<!--    <form class="form-group" action="/perso">-->
+<!--        <div class="container-fluid text-center">-->
+<!--            <label for="login">Login<sup class="requiredField">(*)</sup> : </label>-->
+<!--            <input class="" type="text" id="login2" style="width:30%" required maxlength="50">-->
+<!--            <br> <br>-->
+<!--            <label for="mdp">Mot de passe<sup class="requiredField">(*)</sup> : </label>-->
+<!--            <input class="form-control text-center" type="password" id="mdp2" style="width:30%" required maxlength="20">-->
+<!--            <br> <br>-->
+<!--            <input type="submit" value="Se connecter" id="connexion2" class="btn btn-primary">-->
+<!--            <br> <br>-->
+<!--            <a href="/oauth2/authorization/facebook">-->
+<!--                <img src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"-->
+<!--                     style="width: 4%" style="height: 4%">-->
+<!--            </a>-->
+<!--            <a href="/oauth2/authorization/google">-->
+<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" style="width: 4%"-->
+<!--                     style="height: 4%">-->
+<!--            </a>-->
+<!--            <a href="/oauth2/authorization/github">-->
+<!--                <img src="https://image.flaticon.com/icons/png/512/25/25231.png" style="width: 4%" style="height: 4%">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+
+<div class="container-fluid">
+
+</div>
+
+<footer class="container-fluid text-center">
+    <p>Dashboard project by Corentin Herisson, Tiphaine Blanchard & Lucas Bodin</p>
+</footer>
+</body>
+</html>
